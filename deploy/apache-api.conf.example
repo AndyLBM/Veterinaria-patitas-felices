@@ -1,0 +1,9 @@
+# Incluir MANUALMENTE desde httpd.conf tras revisar y respaldar la configuración.
+# Requiere mod_proxy y mod_proxy_http. No habilita un proxy abierto.
+# Este bloque se añade al servidor local existente, sin crear otro VirtualHost.
+ProxyRequests Off
+ProxyPass        "/api/" "http://127.0.0.1:8000/"
+ProxyPassReverse "/api/" "http://127.0.0.1:8000/"
+<Location "/api/">
+    Require local
+</Location>

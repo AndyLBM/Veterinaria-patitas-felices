@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174e4b">
+  <meta name="api-base" content="/api/">
+  <meta name="description" content="Plataforma de gestión veterinaria de Patitas Felices.">
+  <title>Patitas Felices · Bienvenida</title>
+  <link rel="icon" href="assets/img/marca.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/accessibility.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/client.css">
+  <link rel="stylesheet" href="assets/css/vet.css">
+  <link rel="stylesheet" href="assets/css/history.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div class="app-shell" id="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Barra lateral">
+      <button class="icon-button menu-close" id="menu-close" type="button" aria-label="Cerrar menú"></button>
+      <a class="brand" href="#/inicio" aria-label="Patitas Felices, inicio">
+        <img src="assets/img/marca.svg" width="44" height="44" alt="">
+        <span><strong>Patitas Felices</strong><small>CUIDADO VETERINARIO</small></span>
+      </a>
+      <div class="sidebar-scroll">
+        <nav id="main-navigation" aria-label="Navegación principal"></nav>
+      </div>
+      <div class="sidebar-note"><span class="small-label">HECHO PARA CUIDAR</span><p>Más cerca de ellos.<br>Más simple para ti.</p><span class="sidebar-note-paw" aria-hidden="true">♡</span></div>
+      <div class="sidebar-foot"><span class="status-dot" aria-hidden="true"></span> Acceso a la plataforma <span class="version">Fase 15</span></div>
+    </aside>
+    <button class="menu-overlay" id="menu-overlay" aria-label="Cerrar menú" hidden></button>
+    <div class="workspace" id="workspace">
+      <header class="topbar">
+        <div class="topbar-context"><button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sidebar"></button><span class="breadcrumb">Patitas Felices <span aria-hidden="true">/</span> <strong id="route-label">Bienvenida</strong></span></div>
+        <div class="topbar-actions"><span class="session-label" id="session-label">Sin sesión</span><a class="button button-small button-secondary" id="header-access" href="#/acceso">Acceder <span aria-hidden="true">↗</span></a><button class="button button-small button-secondary" id="logout" type="button" hidden>Cerrar sesión</button></div>
+      </header>
+      <main id="main-content" tabindex="-1" aria-busy="true"><div id="view" class="view"><p role="status">Cargando la plataforma…</p></div></main>
+      <footer class="page-footer"><span>Patitas Felices <span aria-hidden="true">·</span> Cada vida merece un buen cuidado.</span><span>Plataforma veterinaria</span></footer>
+    </div>
+  </div>
+  <div id="notifications" class="notifications" aria-label="Notificaciones" aria-live="polite" aria-atomic="false"></div>
+  <noscript><p class="noscript">Activa JavaScript para utilizar la plataforma.</p></noscript>
+</body>
+</html>

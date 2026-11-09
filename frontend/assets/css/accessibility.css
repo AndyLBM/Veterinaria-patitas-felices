@@ -1,0 +1,13 @@
+/* Refuerzo de contraste de textos pequeños y estados sobre superficies claras. */
+.breadcrumb,.nav-section,.page-footer,.session-label,.version{color:#5e7165}
+.nav-section{font-size:10px}
+.badge{font-size:10px}
+.brand small{font-size:9px}
+.hero .eyebrow{color:#4e6a50;font-size:10px}
+.hero p.hero-description{color:#526b56}
+.sidebar-note .small-label{color:#566e53;font-size:9px}
+.page-footer{font-size:11px}
+/* El límite de campos editables debe distinguirse de la superficie blanca. */
+.field input,.field select,.field textarea{border-color:#7a8c80}
+/* Texto auxiliar también sobre las superficies verdes suaves. */
+:root{--muted:#5b6d64}

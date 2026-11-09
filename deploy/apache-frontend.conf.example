@@ -1,0 +1,9 @@
+# Activación MANUAL desde httpd.conf, junto al proxy /api/ de esta carpeta.
+# Solo se publica frontend/, nunca la raíz del repositorio ni su archivo .env.
+Alias "/patitas/" "C:/Users/User/Documents/Patitas Felices/frontend/"
+<Directory "C:/Users/User/Documents/Patitas Felices/frontend">
+    Options -Indexes
+    AllowOverride None
+    DirectoryIndex index.html
+    Require local
+</Directory>
