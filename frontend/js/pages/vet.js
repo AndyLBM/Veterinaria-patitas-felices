@@ -45,7 +45,7 @@ export function mountVet({ host, signal, route }) {
       const grid = el('div', null, 'pet-grid');
       for (const r of rows) { const card = el('article', null, 'card own-appointment'); card.dataset.vetAppointment = r.id_cita;
         card.append(el('span', APPOINTMENT_STATES[r.estado] || r.estado, 'badge badge-outline'), el('h2', r.nombre_mascota), el('p', `${r.nombre_cliente} ${r.apellido_cliente}`), el('p', r.nombre_servicio), el('p', formatLocalDateTime(r.fecha_inicio)), el('small', 'Hora de Lima'));
-        const b = button('Abrir cita y atención', { variant: 'secondary', onClick: () => { if (!writing) loadCase(r.id_cita); } }); b.dataset.action = 'open-vet-case'; b.setAttribute('aria-label', `Abrir cita ${r.id_cita} de ${r.nombre_mascota}`); card.append(b); grid.append(card);
+        const b = button('Abrir cita y atención', { variant: 'secondary', onClick: () => { if (!writing) loadCase(r.id_cita); } }); b.dataset.action = 'open-vet-case'; b.setAttribute('aria-label', `Abrir cita y atención ${r.id_cita} de ${r.nombre_mascota}`); card.append(b); grid.append(card);
       } agenda.append(grid);
     } catch (error) { if (!signal.aborted && version === listVersion) agenda.replaceChildren(state({ kind: 'error', message: errorMessage(error), action: { label: 'Reintentar', onClick: loadAgenda } })); }
     finally { if (!signal.aborted && version === listVersion) agenda.removeAttribute('aria-busy'); }

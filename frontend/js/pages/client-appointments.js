@@ -30,7 +30,7 @@ export function mountClientAppointments({ host, signal }) {
     for (const r of visible) {
       const card = el('article', null, 'card own-appointment'); card.dataset.appointmentId = r.id_cita;
       card.append(el('span', APPOINTMENT_STATES[r.estado] || r.estado, 'badge badge-outline'), el('h2', r.nombre_mascota), el('p', r.nombre_servicio), el('p', `${r.nombre_veterinario} ${r.apellido_veterinario}`, 'client-note'), el('p', formatLocalDateTime(r.fecha_inicio)), el('small', 'Hora de Lima'));
-      const b = button('Ver detalle', { variant: 'secondary', onClick: () => show(r.id_cita) }); b.dataset.action = 'view-own-appointment'; b.setAttribute('aria-label', `Ver cita ${r.id_cita} de ${r.nombre_mascota}`); card.append(b); grid.append(card);
+      const b = button('Ver detalle', { variant: 'secondary', onClick: () => show(r.id_cita) }); b.dataset.action = 'view-own-appointment'; b.setAttribute('aria-label', `Ver detalle de cita ${r.id_cita} de ${r.nombre_mascota}`); card.append(b); grid.append(card);
     } list.append(grid);
   }
   filters.addEventListener('submit', e => {

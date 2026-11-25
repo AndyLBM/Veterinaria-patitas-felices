@@ -40,6 +40,8 @@ export function setupResponsiveMenu() {
   const media = window.matchMedia('(max-width: 800px)');
   toggle.append(icon('menu')); closeButton.append(icon('close'));
   let open = false;
+  let lastFocus = document.activeElement;
+  document.addEventListener('focusin', event => { lastFocus = event.target; });
   function setOpen(next, returnFocus = true) {
     const previous = open;
     open = media.matches && next;
@@ -53,7 +55,7 @@ export function setupResponsiveMenu() {
       sidebar.setAttribute('role', 'dialog'); sidebar.setAttribute('aria-modal', 'true');
       closeButton.focus();
     } else {
-      sidebar.removeAttribute('role'); sidebar.removeAttribute('aria-modal');
+      sidebar.setAttribute('role', 'complementary'); sidebar.removeAttribute('aria-modal');
       if (previous && returnFocus && media.matches) toggle.focus();
     }
   }
@@ -77,7 +79,16 @@ export function setupResponsiveMenu() {
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     }
   });
-  media.addEventListener('change', () => setOpen(false, false));
+  media.addEventListener('change', () => {
+    // El navegador puede enviar el foco a body al ocultar el control enfocado.
+    const focused = document.activeElement === document.body ? lastFocus : document.activeElement;
+    const hiddenByResize = sidebar.contains(focused) || focused === toggle;
+    setOpen(false, false);
+    if (hiddenByResize) {
+      const target = media.matches ? toggle : sidebar.querySelector('[aria-current="page"]') || sidebar.querySelector('a');
+      target?.focus();
+    }
+  });
   setOpen(false);
   return { close: () => setOpen(false, false) };
 }

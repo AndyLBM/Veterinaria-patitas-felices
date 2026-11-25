@@ -11,3 +11,25 @@
 .field input,.field select,.field textarea{border-color:#7a8c80}
 /* Texto auxiliar también sobre las superficies verdes suaves. */
 :root{--muted:#5b6d64}
+
+/* Doble borde: el foco sigue distinguiéndose sobre superficies claras y oscuras. */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,
+textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:4px;
+  box-shadow:0 0 0 4px #fff;
+}
+h1[tabindex="-1"]:focus,main[tabindex="-1"]:focus{
+  outline:3px solid var(--focus);
+  outline-offset:4px;
+}
+html{scroll-padding-block:1rem}
+[tabindex],input,select,textarea,button,a{scroll-margin-block:1rem}
+/* El contorno de una tabla desplazable se dibuja dentro de su borde. */
+.table-wrap:focus-visible{outline-offset:-3px;box-shadow:none}
+/* Los segmentos nativos de fecha/hora reciben foco dentro del shadow DOM. */
+.field input[type="date"]:focus-within,.field input[type="time"]:focus-within{
+  outline:3px solid var(--focus);
+  outline-offset:4px;
+  box-shadow:0 0 0 4px #fff;
+}

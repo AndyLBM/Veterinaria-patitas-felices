@@ -53,7 +53,7 @@ export function mountHistory({ host, signal }) {
           const item = el('li'), card = el('article', null, 'card history-entry'); card.dataset.historyAttention = row.id_atencion;
           card.append(el('p', formatLocalDateTime(row.fecha_atencion), 'history-date'), el('h3', `Atención ${row.id_atencion}`), el('p', `${row.nombre_veterinario} ${row.apellido_veterinario}`, 'history-professional'), el('small', row.especialidad));
           values(card, [['Diagnóstico', row.diagnostico], ['Tratamiento', row.tratamiento]]);
-          const open = button('Ver atención completa', { variant: 'secondary', onClick: () => loadDetail(pet, row.id_atencion) }); open.dataset.action = 'history-detail'; open.setAttribute('aria-label', `Ver atención ${row.id_atencion} del ${formatLocalDateTime(row.fecha_atencion)}`); card.append(open); item.append(card); timeline.append(item);
+          const open = button('Ver atención completa', { variant: 'secondary', onClick: () => loadDetail(pet, row.id_atencion) }); open.dataset.action = 'history-detail'; open.setAttribute('aria-label', `Ver atención completa ${row.id_atencion} del ${formatLocalDateTime(row.fecha_atencion)}`); card.append(open); item.append(card); timeline.append(item);
         } results.append(timeline);
       }
       heading.focus();
